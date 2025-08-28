@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .property { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; border-radius: 8px; }
+        .property h2 { margin-top: 0; }
+    </style>
+</head>
+<body>
+    <h1>Available Properties</h1>
+    <p>This page was generated at: {% now "Y-m-d H:i:s" %}</p>
+    <hr>
+    {% for prop in properties %}
+        <div class="property">
+            <h2>{{ prop.title }}</h2>
+            <p>{{ prop.description }}</p>
+            <strong>Price: ${{ prop.price }}</strong>
+        </div>
+    {% empty %}
+        <p>No properties found.</p>
+    {% endfor %}
+</body>
+</html>
